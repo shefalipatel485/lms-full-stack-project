@@ -5,7 +5,8 @@ from sqlalchemy import (
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from app.database import Base
-
+from datetime import date
+from sqlalchemy import Column, Integer, String, Date, ForeignKey, UniqueConstraint
 # 1. roles
 class Role(Base):
     __tablename__ = "roles"
@@ -306,7 +307,7 @@ class Certificate(Base):
     certificate_number = Column(String(60), unique=True, index=True, nullable=False)
     student_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
     course_id = Column(Integer, ForeignKey("courses.id", ondelete="CASCADE"), nullable=False)
-    issued_date = Column(Date, server_default=func.current_date(), nullable=False)
+    issued_date = Column(Date, nullable=False, default=date.today)
     pdf_url = Column(String(500), nullable=True)
 
     __table_args__ = (UniqueConstraint("student_id", "course_id", name="uq_student_course_certificate"),)
