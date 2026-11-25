@@ -1,6 +1,15 @@
 # EduSphere — Full Stack Learning Management System (LMS)
 
-Complete role-based Learning Management System built with **React.js, Tailwind CSS, Python FastAPI, SQLAlchemy, MySQL, and JWT Authentication**.
+Complete role-based Learning Management System built with **React.js, Tailwind CSS, Python FastAPI, SQLAlchemy, MySQL, and JWT Authentication**, deployed on **Render** (backend) and **Vercel** (frontend) with **Aiven Cloud MySQL**.
+
+## Live Deployment
+
+| Service | Platform | Live URL |
+|---|---|---|
+| **Frontend App** | Vercel | https://lms-full-stack-project-rho.vercel.app |
+| **Backend API** | Render | https://lms-full-stack-project-hjz6.onrender.com |
+| **Swagger API Docs** | Render | https://lms-full-stack-project-hjz6.onrender.com/docs |
+| **Database** | Aiven Cloud MySQL | Managed MySQL (`PyMySQL` over SSL/TLS) |
 
 ## Folder Structure
 ```text
@@ -58,6 +67,12 @@ Complete role-based Learning Management System built with **React.js, Tailwind C
 | **Admin** | `admin@lms.edu` | `Admin@123` |
 | **Instructor** | `instructor@lms.edu` | `Instructor@123` |
 | **Student** | `student@lms.edu` | `Student@123` |
+
+## Deployment Configuration & Environment Variables
+
+* **Render (Backend):** Configure `DATABASE_URL` (`mysql+pymysql://...`), `SECRET_KEY`, `ALGORITHM=HS256`, `ACCESS_TOKEN_EXPIRE_MINUTES`, `BACKEND_CORS_ORIGINS` (e.g., `https://lms-full-stack-project-rho.vercel.app`), and `PYTHON_VERSION=3.11.11` (never commit real secrets to Git).
+* **Vercel (Frontend):** Set `VITE_API_BASE_URL=https://lms-full-stack-project-hjz6.onrender.com` and redeploy after updating environment variables.
+* **Reports & Documentation:** Additional deployment and project report details are available under `docs/09-deployment/` and `docs/11-reports/`.
 
 ## Quick Start in VS Code
 
